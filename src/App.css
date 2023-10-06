@@ -1,38 +1,53 @@
-.App {
-  text-align: center;
+.form-check-switch .form-check-input {
+  width: 48px;
+  height: 26px;
+  margin-right: 10px;
+}
+body{
+  background-color: grey;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.form-check-switch .form-check-input:checked + .form-check-label::before {
+  transform: translateX(26px);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.form-check-switch .form-check-label {
+  padding-left: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.form-check-switch .form-check-label::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+}
+
+.form-check-switch .form-check-input:checked + .form-check-label::before {
+  background-color: #2196F3;
+}
+
+.form-check-switch .form-check-input:focus + .form-check-label::before {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+
+/* .btn-group-toggle {
+  width: 100px;
+}
+
+.btn-group-toggle .btn {
+  width: 50%;
+}
+
+.btn-group-toggle .btn-active {
+  background-color: #2196F3;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+.btn-group-toggle .btn-active:focus {
+  box-shadow: 0 0 1px #2196F3;
+} */
