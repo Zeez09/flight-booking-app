@@ -4,7 +4,7 @@
   margin-right: 10px;
 }
 body{
-  background-color: grey;
+  background-color: #FBFBFB;
 }
 
 .form-check-switch .form-check-input:checked + .form-check-label::before {
@@ -22,7 +22,7 @@ body{
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #ffff;
   transition: .4s;
 }
 
@@ -33,21 +33,16 @@ body{
 .form-check-switch .form-check-input:focus + .form-check-label::before {
   box-shadow: 0 0 1px #2196F3;
 }
-
-
-/* .btn-group-toggle {
-  width: 100px;
+footer{
+  background: linear-gradient(to right, rgb(104, 34, 104), rgb(201, 136, 201));
 }
-
-.btn-group-toggle .btn {
-  width: 50%;
+#go{
+  background-color: #ffff;
+  margin: 7% auto;
 }
-
-.btn-group-toggle .btn-active {
-  background-color: #2196F3;
-  color: white;
+form{
+  width: 80%;
+  background: #ffff;
+  padding: 1.5rem;
+  border-radius: 1rem;
 }
-
-.btn-group-toggle .btn-active:focus {
-  box-shadow: 0 0 1px #2196F3;
-} */
