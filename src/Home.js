@@ -1,8 +1,8 @@
-import Navbar from "./Navbar";
-import Banner from "./Banner";
-import Carousel from "./Carousel";
-import Footer from "./Footer";
-import Form from "./Form";
+import Navbar from "./component/Navbar";
+import Banner from "./component/Banner";
+import Carousel from "./component/Carousel";
+import Footer from "./component/Footer";
+import Form from "./component/Form";
 
 function Home() {
   return (

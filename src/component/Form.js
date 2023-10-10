@@ -1,24 +1,48 @@
 import React, { useState } from "react";
-
-import "./App.css";
+import { useDispatch } from "react-redux";
+import { setData } from "../utils/actions";
+import { useNavigate } from "react-router-dom";
+import "../App.css";
+import axios from "axios";
 
 function Form() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [selectedCurrency, setSelectedCurrency] = useState(""); // State for selected currency
   const [flyingFrom, setFlyingFrom] = useState(""); // State for Flying From input
+  console.log(flyingFrom);
   const [flyingTo, setFlyingTo] = useState(""); // State for Flying To input
+<<<<<<< HEAD:src/Form.js
 
+=======
+  console.log(flyingTo);
+>>>>>>> a631eebc4f99dcea5603e4fafaf6a5619bb909cc:src/component/Form.js
   const [adultCount, setAdultCount] = useState(1); // State for Adult count
   const [childCount, setChildCount] = useState(0); // State for Child count
   const [infantCount, setInfantCount] = useState(0); // State for Infant count
-  const [classes, setFlightClass] = useState("");
-  const [tripType, setTripType] = useState(["one-way"]);
+  const [classes, setClasses] = useState("");
+  const [tripType, setTripType] = useState({
+    "one-way": true,
+    "round-trip": false,
+  });
+  console.log(tripType["one-way"]);
   const [returnDate, setReturnDate] = useState("");
-
+  console.log(returnDate);
+  const [date, setDate] = useState("");
+  console.log(date);
+  const [datas, setData] = useState("");
+  console.log(datas);
+  const data = {
+    flyingFrom,
+    flyingTo,
+  };
   const handleTripTypeChange = (e) => {
-    setTripType(e.target.value);
-    if (e.target.value === "one-way") {
-      setReturnDate("");
-    }
+    const { value } = e.target;
+    setTripType({
+      ...tripType,
+      "one-way": value === "one-way",
+      "round-trip": value === "round-trip",
+    });
   };
   const handleFlyingFromChange = (e) => {
     setFlyingFrom(e.target.value);
@@ -29,19 +53,47 @@ function Form() {
   const handleReturnDateChange = (e) => {
     setReturnDate(e.target.value);
   };
+  const handleDateChange = (e) => {
+    setDate(e.target.value);
+  };
   const handleFlightClassChange = (e) => {
-    setFlightClass(e.target.value);
+    setClasses(e.target.value);
+  };
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    Promise.resolve(
+      dispatch(
+        setData(
+          selectedCurrency,
+          flyingFrom,
+          flyingTo,
+          adultCount,
+          childCount,
+          infantCount,
+          classes,
+          tripType,
+          returnDate,
+          date
+        )
+      )
+    ).then(() => {
+      navigate("/");
+      // Redirect to payment page
+    });
   };
 
   return (
     <>
-      <form class="row g-3 mx-auto text-dark containe-fluid my-5">
+      <form
+        class="row g-3 mx-auto text-dark containe-fluid my-5"
+        onSubmit={handleFormSubmit}
+      >
         <div className="input-group mb-3">
           <button
             className="btn text-dark bg-white btn-outline-white"
             style={{ borderRight: "1px solid black" }}
           >
-            PayiN
+            Currency
           </button>
           <select
             className="form-select"
@@ -49,7 +101,7 @@ function Form() {
             value={selectedCurrency}
             onChange={(e) => setSelectedCurrency(e.target.value)}
           >
-            <option value="">Choose...</option>
+            <option value="">Currency</option>
             <option value="Naira">Naira</option>
             {/* Add more currency options as needed */}
           </select>
@@ -61,7 +113,7 @@ function Form() {
               type="radio"
               name="trip-type"
               value="one-way"
-              checked={tripType.includes("one-way")}
+              checked={tripType["one-way"]}
               onChange={handleTripTypeChange}
             />
             <label class="form-check-label" for="trip-type">
@@ -74,7 +126,7 @@ function Form() {
               type="radio"
               name="trip-type"
               value="round-trip"
-              checked={tripType.includes("round-trip")}
+              checked={tripType["round-trip"]}
               onChange={handleTripTypeChange}
             />
             <label class="form-check-label" for="trip-type">
@@ -92,10 +144,10 @@ function Form() {
             value={flyingFrom}
             onChange={handleFlyingFromChange}
           >
-            <option value="">Select an option</option>
-            <option value="New York">New York</option>
-            <option value="London">London</option>
-            <option value="Paris">Paris</option>
+            <option value=""></option>
+            <option value="New York">LOS</option>
+            <option value="London">ABV</option>
+            <option value="Paris">PHC</option>
             {/* Add more options as needed */}
           </select>
         </div>
@@ -109,26 +161,38 @@ function Form() {
             value={flyingTo}
             onChange={handleFlyingFromChange2}
           >
-            <option value="">Select an option</option>
-            <option value="New York">New York</option>
-            <option value="London">London</option>
-            <option value="Paris">Paris</option>
+            <option value=""></option>
+            <option value="New York">KAN</option>
+            <option value="London">LOS</option>
+            <option value="Paris">ENU</option>
             {/* Add more options as needed */}
           </select>
         </div>
-        {tripType.includes("round-trip") && (
-          <div class="col-md-6">
-            <label for="returnDate" class="form-label">
+        <div class="col-md-6">
+          <label for="returnDate" class="form-label">
+            Date:
+          </label>
+          <input
+            class="form-control"
+            type="date"
+            value={date}
+            onChange={handleDateChange}
+          />
+        </div>
+        {tripType["round-trip"] ? (
+          <div className="col-md-6">
+            <label htmlFor="returnDate" className="form-label">
               Return date:
             </label>
             <input
-              class="form-control"
+              className="form-control"
               type="date"
               value={returnDate}
               onChange={handleReturnDateChange}
             />
           </div>
-        )}
+        ) : null}
+
         <div className="col-12">
           <label htmlFor="inputFlightClass" className="form-label">
             Select Flight Class:
