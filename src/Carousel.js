@@ -35,7 +35,6 @@ function Carousel() {
       </div>
     </div>
 
-  
     <div class="col-lg-6">
       <p>
         Your paragraph of text goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id velit justo.

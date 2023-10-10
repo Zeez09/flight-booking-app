@@ -24,9 +24,9 @@ function Form() {
 
   return (
 <>
-<form class="row g-3 mx-auto text-dark containe-fluid my-5">
+<form class="row g-3 mx-auto text-dark my-5">
                 <div class="input-group mb-3">
-                    <button class="btn text-dark bg-white btn-outline-white" style={{borderRight:'1px solid black'}}  type="button">PayiN</button>
+                    <button class="btn text-white bg-secondary btn-outline-white" style={{borderRight:'1px solid black'}}  type="button">PayiN</button>
                     <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">
                         <option selected>Choose...</option>
                         <option value="1">One</option>

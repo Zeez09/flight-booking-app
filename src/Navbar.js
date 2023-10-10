@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Checkin from './Checkin'
 import './App.css'
 import './Custom.scss'
 
@@ -12,14 +11,13 @@ function Navbar() {
         const st = window.pageYOffset || document.documentElement.scrollTop;
         if (st > lastScrollTop) {
           // Scroll down
-          document.querySelector('.navbar').style.top = "-70px"; // Adjust the value as needed
+          document.querySelector('#lolo').style.top = "-70px"; // Adjust the value as needed
         } else {
           // Scroll up
-          document.querySelector('.navbar').style.top = "0";
+          document.querySelector('#lolo').style.top = "0";
         }
         setLastScrollTop(st <= 0 ? 0 : st);
       };
-  
       window.addEventListener("scroll", handleScroll);
       return () => {
         window.removeEventListener("scroll", handleScroll);
@@ -27,7 +25,7 @@ function Navbar() {
     }, [lastScrollTop]);
   return (
     <>
-          <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+          <nav id="lolo" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
         {/* <img src={} alt=""/> */}
     <a class="navbar-brand" href="#">MQ'S FLIGHT</a>
@@ -47,11 +45,16 @@ function Navbar() {
           <li class="nav-item m-3">
             <Link type="button" class="nav-link active btn btn-outline-light text-dark" aria-current="page" to="/">Home</Link>
           </li>
+          <li class="nav-item m-3">
+            <Link type="button" class="nav-link active btn btn-outline-primary text-dark" aria-current="page" to="/signin">Sign Up</Link>
+          </li>
+          <li class="nav-item m-3">
+            <Link type="button" class="nav-link active btn btn-outline-primary text-dark" aria-current="page" to="/login">Login</Link>
+          </li>
           <li class="nav-item m-3 dropdown">
           <Link type="button" class="nav-link active btn btn-outline-light text-dark" data-bs-toggle="modal" data-bs-target="#checkinModal">
              Check In
             </Link>
-
 
 <div class="modal fade bg-secondary" id="checkinModal" tabindex="-1" aria-labelledby="checkinModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-fullscreen-sm-down">
@@ -87,8 +90,6 @@ function Navbar() {
             <Link type="button" class="nav-link active btn btn-outline-light text-dark" data-bs-toggle="modal" data-bs-target="#manageBooking">
                 My Bookings
             </Link>
-
-
 <div class="modal fade bg-secondary" id="manageBooking" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-fullscreen-sm-down">
     <div class="modal-content bg-dark">
@@ -110,7 +111,7 @@ function Navbar() {
 </div>
 <div class="modal-footer mx-auto">
 <button type="button" class="btn btn-secondary col-2" data-bs-dismiss="modal">Back</button>
-        <button type="button" class="btn btn-success col-3">Confirm</button>
+       <Link to="/booking" type="button" class="btn btn-success col-3">Confirm</Link>
 </div>
       </div>
     </div>
@@ -118,7 +119,7 @@ function Navbar() {
 </div>
           </li>
           <li class="nav-item m-3 dropdown dropstart">
-             <a class="nav-link dropdown-toggle border rounded" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             <a class="nav-link dropdown-toggle border rounded text-center btn btn-outline-secondary" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Contact Us
             </a>
             <ul class="dropdown-menu dropdown-menu-dark">

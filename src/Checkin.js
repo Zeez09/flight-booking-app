@@ -6,9 +6,13 @@ import { Link } from "react-router-dom";
 
 
 function Checkin() {
+          
+
   return (
    <>
         <Navbar/>
+   
+      
         <div id="go" class="py-5 mx-auto col-md-5">
         <h1 class="text-center pb-2 fs-4">CHECK-IN</h1>
         <form class="g-3 mx-auto border">
