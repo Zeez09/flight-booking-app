@@ -1,0 +1,28 @@
+.modal-content {
+    background-image: url('./images/abuja-destination.png');
+    background-size: cover;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.3);
+    color: white;
+  }
+  .modal-bg {
+    background-image: url('./images/portharcourt-destination.png');
+    background-size: cover;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.3);
+    color: white;
+  }
+  
+  .btn-check-in {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+
+  }
+  
+  .btn-check-in:hover {
+    background-color: #218838;
+  }
