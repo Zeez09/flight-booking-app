@@ -1,8 +1,8 @@
 import React from "react";
-import abuja from "./images/abuja-destination.png";
-import akure from "./images/akure-destination.jpg";
-import pharcourt from "./images/portharcourt-destination.png";
-import "./App.css";
+import abuja from "../images/abuja-destination.png";
+import akure from "../images/akure-destination.jpg";
+import pharcourt from "../images/portharcourt-destination.png";
+import "../App.css";
 
 function Carousel() {
   return (

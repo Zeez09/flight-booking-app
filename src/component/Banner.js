@@ -1,8 +1,8 @@
 import React from "react";
-import banner from "./images/main-banner.png";
-import banner2 from "./images/2.png";
-import banner3 from "./images/Colorful Fresh Travel Banner2.png";
-import "./App.css";
+import banner from "../images/main-banner.png";
+import banner2 from "../images/2.png";
+import banner3 from "../images/Colorful Fresh Travel Banner2.png";
+import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Carousel } from "react-bootstrap";
 
