@@ -6,7 +6,7 @@ function Form() {
   const [selectedCurrency, setSelectedCurrency] = useState(""); // State for selected currency
   const [flyingFrom, setFlyingFrom] = useState(""); // State for Flying From input
   const [flyingTo, setFlyingTo] = useState(""); // State for Flying To input
-  const [address, setAddress] = useState(""); // State for Address input
+
   const [adultCount, setAdultCount] = useState(1); // State for Adult count
   const [childCount, setChildCount] = useState(0); // State for Child count
   const [infantCount, setInfantCount] = useState(0); // State for Infant count
