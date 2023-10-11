@@ -26,26 +26,28 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
-      axios.post("http://localhost:8000/api/signin/", data).then((res) => {
-        // Redirect to payment page
-        setIsLoading(true);
-        if (res.data) {
-          localStorage.setItem("access_token", res.data.access);
-          localStorage.setItem("refresh_token", res.data.refresh);
-          axios.defaults.headers["Authorization"] =
-            "JWT " + localStorage.getItem("refresh_token");
-          //set both tokens and user in local storage
-          const message = {
-            User: data.email,
-            token: res.data,
-          };
-          //save data and token to local storage
-          localStorage.setItem("user", JSON.stringify(message));
-
+      axios
+        .post("https://flight-app-backend.onrender.com/api/signin/", data)
+        .then((res) => {
+          // Redirect to payment page
           setIsLoading(true);
-          setTimeout(() => (window.location.href = "/"), 500);
-        }
-      });
+          if (res.data) {
+            localStorage.setItem("access_token", res.data.access);
+            localStorage.setItem("refresh_token", res.data.refresh);
+            axios.defaults.headers["Authorization"] =
+              "JWT " + localStorage.getItem("refresh_token");
+            //set both tokens and user in local storage
+            const message = {
+              User: data.email,
+              token: res.data,
+            };
+            //save data and token to local storage
+            localStorage.setItem("user", JSON.stringify(message));
+
+            setIsLoading(true);
+            setTimeout(() => (window.location.href = "/"), 500);
+          }
+        });
     } catch (err) {}
 
     form.current.reset();
@@ -97,7 +99,7 @@ function Login() {
               <Link
                 type="button"
                 className="btn btn-outline-secondary mt-5"
-                to="/signin"
+                to="/Register"
               >
                 Or Sign Up
               </Link>
