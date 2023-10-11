@@ -32,7 +32,7 @@ const reducer = (state = initialState, action) => {
         classes: action.payload.classes,
         tripType: action.payload.tripType,
         returnDate: action.payload.returnDate,
-        date: action.payload.date,
+        date: action.payload.returnDate,
       };
     default:
       return state;

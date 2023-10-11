@@ -12,11 +12,7 @@ function Form() {
   const [flyingFrom, setFlyingFrom] = useState(""); // State for Flying From input
   console.log(flyingFrom);
   const [flyingTo, setFlyingTo] = useState(""); // State for Flying To input
-<<<<<<< HEAD:src/Form.js
-
-=======
   console.log(flyingTo);
->>>>>>> a631eebc4f99dcea5603e4fafaf6a5619bb909cc:src/component/Form.js
   const [adultCount, setAdultCount] = useState(1); // State for Adult count
   const [childCount, setChildCount] = useState(0); // State for Child count
   const [infantCount, setInfantCount] = useState(0); // State for Infant count
@@ -25,16 +21,23 @@ function Form() {
     "one-way": true,
     "round-trip": false,
   });
-  console.log(tripType["one-way"]);
+
   const [returnDate, setReturnDate] = useState("");
   console.log(returnDate);
   const [date, setDate] = useState("");
   console.log(date);
-  const [datas, setData] = useState("");
-  console.log(datas);
-  const data = {
-    flyingFrom,
-    flyingTo,
+
+  const isAuthenticated = localStorage.getItem("user"); // Check if user is authenticated from localStorage
+
+  const handleBookFlight = () => {
+    if (!isAuthenticated) {
+      navigate("/login"); // Redirect to login page if user is not authenticated
+    } else {
+      // Perform booking logic here
+      console.log("Flight booked successfully!");
+      // Redirect to success page or any other page after successful booking
+      navigate("/");
+    }
   };
   const handleTripTypeChange = (e) => {
     const { value } = e.target;
@@ -77,10 +80,14 @@ function Form() {
         )
       )
     ).then(() => {
-      navigate("/");
+      navigate("/Booking");
       // Redirect to payment page
     });
   };
+  //get user
+  const user = localStorage.getItem("user");
+  const userData = user ? JSON.parse(user) : null;
+  const username = userData ? userData.username : "please Login to book flight";
 
   return (
     <>
@@ -88,6 +95,18 @@ function Form() {
         class="row g-3 mx-auto text-dark containe-fluid my-5"
         onSubmit={handleFormSubmit}
       >
+        <div className="col">
+          <ul className="list-inline">
+            <li className="list-inline-item">
+              <span className="fw-bold">User: </span>
+              {username}
+            </li>
+            <li className="list-inline-item">
+              <span className="fw-bold">Status: </span>
+              {username ? "Not Registered" : "Registered"}
+            </li>
+          </ul>
+        </div>
         <div className="input-group mb-3">
           <button
             className="btn text-dark bg-white btn-outline-white"
@@ -145,9 +164,9 @@ function Form() {
             onChange={handleFlyingFromChange}
           >
             <option value=""></option>
-            <option value="New York">LOS</option>
-            <option value="London">ABV</option>
-            <option value="Paris">PHC</option>
+            <option value="LOS">Lagos</option>
+            <option value="ABV">Abuja</option>
+            <option value="PHC">Portharcourt</option>
             {/* Add more options as needed */}
           </select>
         </div>
@@ -162,9 +181,9 @@ function Form() {
             onChange={handleFlyingFromChange2}
           >
             <option value=""></option>
-            <option value="New York">KAN</option>
-            <option value="London">LOS</option>
-            <option value="Paris">ENU</option>
+            <option value="KAN">Kano</option>
+            <option value="LOS">Lagos</option>
+            <option value="ENU">Enugu</option>
             {/* Add more options as needed */}
           </select>
         </div>
@@ -267,7 +286,11 @@ function Form() {
           </select>
         </div>
         <div className="text-end">
-          <button type="submit" class="btn btn-primary col-3 m-2">
+          <button
+            type="button"
+            className="btn btn-primary col-3 m-2"
+            onClick={handleBookFlight}
+          >
             Book Flight
           </button>
         </div>

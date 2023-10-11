@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
+
+h2 {
+  margin-bottom: 0;
+}
+.btn-primary {
+  border-radius: 8px;
+  border: none;
+  background-color: #ff0000;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #eb0a0a;
+}

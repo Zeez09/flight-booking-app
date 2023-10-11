@@ -4,20 +4,10 @@ import Footer from "./component/Footer";
 import { Link } from "react-router-dom";
 
 function Checkin() {
-          
-
   return (
-<<<<<<< HEAD
-   <>
-        <Navbar/>
-   
-      
-        <div id="go" class="py-5 mx-auto col-md-5">
-=======
     <>
       <Navbar />
       <div id="go" class="py-5 mx-auto col-md-5">
->>>>>>> a631eebc4f99dcea5603e4fafaf6a5619bb909cc
         <h1 class="text-center pb-2 fs-4">CHECK-IN</h1>
         <form class="g-3 mx-auto border">
           <div class="col">

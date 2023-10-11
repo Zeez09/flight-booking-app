@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "../Navbar.css";
+import "./Navbar.css";
 import Checkin from "../Checkin.js";
 import "../App.css";
 import "../Custom.scss";
@@ -19,7 +19,7 @@ function Navbar() {
   const handleContactEmailChange = (e) => {
     setContactEmail(e.target.value);
   };
-
+  //handle scroll
   useEffect(() => {
     const handleScroll = () => {
       const st = window.pageYOffset || document.documentElement.scrollTop;
@@ -38,6 +38,7 @@ function Navbar() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [lastScrollTop]);
+  
   return (
     <>
       <nav class="navbar navbar-expand-lg fixed-top">

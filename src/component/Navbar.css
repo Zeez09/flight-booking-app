@@ -1,5 +1,5 @@
 .modal-content {
-    background-image: url('./images/abuja-destination.png');
+    background-image: url('../images/abuja-destination.png');
     background-size: cover;
     border: none;
     border-radius: 15px;
@@ -7,7 +7,7 @@
     color: white;
   }
   .modal-bg {
-    background-image: url('./images/portharcourt-destination.png');
+    background-image: url('../images/portharcourt-destination.png');
     background-size: cover;
     border: none;
     border-radius: 15px;
