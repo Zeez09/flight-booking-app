@@ -86,8 +86,10 @@ function Form() {
   };
   //get user
   const user = localStorage.getItem("user");
+  console.log(user);
   const userData = user ? JSON.parse(user) : null;
-  const username = userData ? userData.username : "please Login to book flight";
+  console.log(userData);
+  const username = userData ? userData.User : "please Login to book flight";
 
   return (
     <>
@@ -103,7 +105,7 @@ function Form() {
             </li>
             <li className="list-inline-item">
               <span className="fw-bold">Status: </span>
-              {username ? "Not Registered" : "Registered"}
+              {username ? "Registered" : "Not Registered"}
             </li>
           </ul>
         </div>
@@ -287,7 +289,7 @@ function Form() {
         </div>
         <div className="text-end">
           <button
-            type="button"
+            type="submit"
             className="btn btn-primary col-3 m-2"
             onClick={handleBookFlight}
           >

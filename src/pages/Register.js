@@ -78,12 +78,16 @@ const Signup = (onSignup) => {
   const submitHandler = async (e) => {
     e.preventDefault();
     const { email, username, password } = values;
+    console.log(email);
     try {
-      let res = await axios.post(`http://localhost:8000/api/signup/`, {
-        email: email,
-        username: username,
-        password: password,
-      });
+      let res = await axios.post(
+        `https://flight-app-backend.onrender.com/api/signup/`,
+        {
+          email: email,
+          username: username,
+          password: password,
+        }
+      );
       if (res.data) {
         setIsLoading(true);
       }
