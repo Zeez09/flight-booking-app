@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import Checkin from "../Checkin.js";
+// import Checkin from "../Checkin.js";
 import "../App.css";
 import "../Custom.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
