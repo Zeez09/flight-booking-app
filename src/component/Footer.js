@@ -1,5 +1,8 @@
 import React from "react";
 import "../App.css";
+import { faPlane } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -7,7 +10,9 @@ function Footer() {
       <footer class="footer container-fluid text-white m-0 px-5 pt-5">
         <div class="row text-white">
           <div class="col-md-4">
-            <img src="logo.png" alt="Logo" class="img-fluid" />
+          <Link class="navbar-brand border p-3 rounded mb-3 text-white" to="/">
+            <FontAwesomeIcon icon={faPlane} class="text-white" /> MQ'S FLIGHTS
+          </Link>
             <h5 class="mt-3">Follow us</h5>
             <ul class="list-group list-unstyled social-media-icons list-group-horizontal">
               <li>
@@ -107,20 +112,18 @@ function Footer() {
             <h5>COMPANY INFORMATION</h5>
             <ul class="list-unstyled">
               <li>
-                <i class="bi bi-envelope"></i> email@example.com
+                <i class="bi bi-envelope"></i> wuesemimi@gmail.com
               </li>
               <li>
-                <i class="bi bi-phone"></i> +1 555 555-5555
+                <i class="bi bi-phone"></i>+234 815 272 39
               </li>
-              <li>
-                <i class="bi bi-phone"></i>lorem isv uvkvkuivfv vvu vsycv
-              </li>
+             
             </ul>
           </div>
         </div>
 
         <div class="row mt-5">
-          <div class="col-md-12 text-center">
+          <div class="col-md-12 pt-3 text-center" style={{borderTop:'1px solid darkcyan'}}>
             <p class="copyright">Copyright &copy; 2023 Example Company</p>
           </div>
         </div>

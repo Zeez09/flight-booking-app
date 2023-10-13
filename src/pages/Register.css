@@ -6,7 +6,7 @@ h2 {
 .btn-primary {
   border-radius: 8px;
   border: none;
-  background-color: #ff0000;
+  background: rgb(8, 10, 95);
   color: #ffffff;
 }
 

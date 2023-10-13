@@ -24,6 +24,7 @@ function Booking() {
   const handleBooking = () => {
     setIsBooked(true);
   };
+
   const hello = {
     status: true,
     timestamp: 1696993705317,
@@ -91,6 +92,10 @@ function Booking() {
       },
     },
   };
+  const prices = hello.data.flights.days.map((day) => day.price);
+
+  // Select a random price from the prices array
+  const randomPrice = prices[Math.floor(Math.random() * prices.length)];
   const data = {
     flyingFrom,
     flyingTo,
@@ -101,16 +106,17 @@ function Booking() {
     <>
       <Navbar />
       <div
-        class="row container mx-auto bg-warning rounded-4"
-        style={{ marginTop: "10%" }}
+        class="row container mx-auto p-5 rounded-4 "
+        style={{ marginTop: "10rem", marginBottom:"15rem", height:"30%", background:'rgba(137, 137, 177, 0.823)'}}
       >
         <div class="row container text-center p-2">
           <div class="col-4">
             <h1>{flyingFrom}</h1>
             <p>{date}</p>
           </div>
-          <div class="col-4">
+          <div class="col-md-6">
             <img
+              style={{marginRight: '10px'}}
               width="30"
               height="30"
               src="https://img.icons8.com/ios-filled/50/airplane-mode-on.png"
@@ -118,7 +124,7 @@ function Booking() {
             />
             {tripType["one-way"] ? (
               <>
-                <span className="text-success">One Way</span>
+                <span className="border rounded fs-5 p-2" style={{color: 'rgb(8, 10, 95)'}}>One Way</span>
               </>
             ) : (
               <>
@@ -134,28 +140,28 @@ function Booking() {
         </div>
         <div class="row p-2 text-center">
           <div class="col">
-            <h1>$564</h1>
+            <h1>${randomPrice}</h1>
           </div>
           <div className="col">
-            <p>{classes} class</p>
+            <p class="fs-4">Class: {classes}</p>
           </div>
           <div className="col">
             {!isBooked ? (
               <button
                 type="button"
-                className="btn bg-info col-5"
+                className="btn bg-info text-white col-md-6"
                 onClick={handleBooking}
               >
                 Book
               </button>
             ) : (
-              <button
+              <Link
                 type="button"
-                className="btn bg-success col-5"
+                className="btn bg-primary text-white col-md-6 text-whitenpm"
                 onClick={handleBooking}
               >
-                Booked
-              </button>
+                Booked <img width="48" height="48" src="https://img.icons8.com/color-glass/48/ok--v1.png" alt="ok--v1"/>
+              </Link>
             )}
           </div>
         </div>

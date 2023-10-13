@@ -106,14 +106,14 @@ const Signup = (onSignup) => {
       {isLoading ? (
         <LoadingSpinner />
       ) : (
-        <div className="card mx-auto mb-5 d-flex justify-content-center align-items-center Signin">
-          <div className="card-body">
+        <div className="card col-10 mx-auto mb-5 d-flex justify-content-center align-items-center Signin" style={{marginTop:'100px'}}>
+          <div className="card-body col-sm-7 mx-auto">
             <div className="signup-container">
               <div className="mx-auto">
                 <h2 className="mt-5 text-center mx-auto reg">
                   Create an account
                 </h2>
-                <p className="existing-user">
+                <p className="existing-user text-center mt-4">
                   Have an account? Click to
                   <span>
                     {" "}
@@ -124,14 +124,14 @@ const Signup = (onSignup) => {
                 </p>
                 <form
                   ref={form}
-                  className="signup-form"
+                  className="col-12 mx-auto signup-form"
                   onSubmit={submitHandler}
                   method="post"
                 >
                   <div className="mb-3">
                     <input
                       type="text"
-                      className="form-control"
+                      className="form-control col-12"
                       id="username"
                       placeholder="Username"
                       onChange={changeHandler}
@@ -188,7 +188,8 @@ const Signup = (onSignup) => {
                   <button
                     type="submit"
                     disabled={!isValid}
-                    className="btn btn-primary form-control"
+                    style={{background: 'rgb(8, 10, 95)'}}
+                    className="btn text-white form-control"
                   >
                     REGISTER
                   </button>

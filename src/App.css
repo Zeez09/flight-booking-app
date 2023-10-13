@@ -4,6 +4,7 @@
   margin-right: 10px;
 }
 body{
+  font-family: 'Kanit', sans-serif;
   background-color: #FBFBFB;
 }
 
@@ -34,7 +35,7 @@ body{
   box-shadow: 0 0 1px #2196F3;
 }
 footer{
-  background: linear-gradient(to right, rgb(104, 34, 104), rgb(201, 136, 201));
+  background: rgb(8, 10, 95);
 }
 #go{
   background-color: #ffff;

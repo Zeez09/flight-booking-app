@@ -227,7 +227,7 @@ function Form() {
             <option value="">Select class</option>
             <option value="Economy">Economy</option>
             <option value="Business">Business</option>
-            <option value="First Class">First Class</option>
+            <option value="First Class">First</option>
           </select>
         </div>
         <div className="col-md-6">
@@ -290,12 +290,13 @@ function Form() {
         <div className="text-end">
           <button
             type="submit"
-            className="btn btn-primary col-3 m-2"
+            className="btn btn-primary col-md-5 m-2"
             onClick={handleBookFlight}
           >
             Book Flight
           </button>
         </div>
+       
       </form>
     </>
   );

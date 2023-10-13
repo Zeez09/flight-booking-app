@@ -61,12 +61,12 @@ function Login() {
         <form
           ref={form}
           onSubmit={handleSubmit}
-          className="g-3 mx-auto pt-5 border col-md-5"
+          className="g-3 mx-auto pt-5 mb-5 border col-md-5"
           style={{ marginTop: "15%" }}
         >
           <h2
             className="text-center pb-2 col-4 mx-auto"
-            style={{ borderBottom: "red 1px solid" }}
+            style={{ borderBottom: "green 2px solid" }}
           >
             MQ's Login
           </h2>

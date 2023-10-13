@@ -44,11 +44,11 @@ function Navbar() {
       <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid">
           {/* <img src={} alt=""/> */}
-          <a class="navbar-brand" href="#">
-            <FontAwesomeIcon icon={faPlane} /> MQ'S FLIGHT
-          </a>
+          <Link class="navbar-brand text-white" to="/">
+            <FontAwesomeIcon icon={faPlane} class="text-white" /> MQ'S FLIGHTS
+          </Link>
 
-          <button
+          <button style={{border: '1px white solid'}}
             class="navbar-toggler"
             type="button"
             data-bs-toggle="offcanvas"
@@ -88,15 +88,15 @@ function Navbar() {
                     Home
                   </Link>
                 </li>
-                <li className="nav-item m-3 dropdown">
-                  <button
+                <li className="nav-item m-3">
+                  <Link
                     type="button"
                     className="nav-link active btn btn-outline-light text-dark"
                     data-bs-toggle="modal"
                     data-bs-target="#checkinModal"
                   >
                     Check In
-                  </button>
+                  </Link>
                   <div
                     className="modal fade bg-secondary modal-bg"
                     id="checkinModal"
@@ -167,7 +167,7 @@ function Navbar() {
                 </li>
                 <li class="nav-item m-3 dropdown dropstart">
                   <a
-                    class="nav-link dropdown-toggle border rounded"
+                    class="nav-link bg-white text-center dropdown-toggle border rounded"
                     href="#"
                     role="button"
                     data-bs-toggle="dropdown"

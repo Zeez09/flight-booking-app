@@ -9,7 +9,7 @@ import { Carousel } from "react-bootstrap";
 function Banner() {
   return (
     <>
-      <Carousel className="custom-carousel">
+      <Carousel className="custom-carousel" style={{marginTop: '50px'}}>
         <Carousel.Item>
           <img
             className="d-block w-100 custom-carousel-image"

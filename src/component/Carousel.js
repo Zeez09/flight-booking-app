@@ -63,10 +63,8 @@ function Carousel() {
 
           <div class="col-lg-6">
             <p>
-              Your paragraph of text goes here. Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit. Sed id velit justo. Curabitur
-              efficitur, lectus sit amet ultricies tincidunt, libero leo
-              ultricies ligula, vel laoreet arcu est vel quam. Nulla facilisi.
+              At MQ's Flights, we believe that the world is a boundless adventure waiting to be explored. Our goal is to connect travellers with their dream destinations, whether it's the vibrant streets of a bustling city, the tranquile shores of an exotic beach, or the magestic heights of a far-off mountain range.
+              We are committed to providing access to a diverse array of destinations, fostering a love for travel, discovery, and cultural exploration. With us, every journey is an opportunity to make unforgettable memories, and we are here to help you embark on your next incredible adventure.
             </p>
           </div>
         </div>
@@ -77,15 +75,12 @@ function Carousel() {
       >
         <h2>
           Our{" "}
-          <span style={{ borderBottom: "1px solid purple" }}>Destinations</span>
+          <span style={{ borderBottom: "1px solid purple" }}>Mission</span>
         </h2>
         <div class="row align-items-center mt-3">
           <div class="col-lg-6">
             <p>
-              Your paragraph of text goes here. Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit. Sed id velit justo. Curabitur
-              efficitur, lectus sit amet ultricies tincidunt, libero leo
-              ultricies ligula, vel laoreet arcu est vel quam. Nulla facilisi.
+              At MQ's Flights, our mission is to simpplify and enhance the travel experience. We are committed to providing travellers with a user-centric platform that offers comprehensive, secure, and eco-conscious travel solutions.Through innovation and dedication, we aim to deliver an app that empowers users to explore the world with confidence and convenience. Our mission is to make travel planning a delightful journey in itself, marked by personalization, data security, and enviromentally-friendly choices.
             </p>
           </div>
           <div class="col-lg-6">
