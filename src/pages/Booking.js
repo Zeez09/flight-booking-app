@@ -4,7 +4,7 @@ import Footer from "../component/Footer";
 import Navbar from "../component/Navbar";
 import { useSelector } from "react-redux";
 import { usePaystackPayment } from "react-paystack";
-
+import { useNavigate } from "react-router-dom";
 function Booking() {
   const {
     selectedCurrency,
@@ -19,6 +19,8 @@ function Booking() {
     date,
   } = useSelector((state) => state.mainReducer);
   console.log(tripType["one-way"]);
+  //navigate
+  const navigate = useNavigate();
   //get user
   const user = localStorage.getItem("user");
   console.log(user);
@@ -42,6 +44,9 @@ function Booking() {
     // Implementation for whatever you want to do with reference and after success call.
     // Convert the object to a JSON string before storing
     localStorage.setItem("transid", JSON.stringify(reference.reference));
+    if (reference) {
+      navigate("/success");
+    }
   };
 
   // you can call this function anything
@@ -210,7 +215,6 @@ function Booking() {
                 type="button"
                 className="btn bg-primary text-white col-md-6 text-whitenpm"
                 onClick={handleBooking}
-                to="/success"
               >
                 Booked <PaystackHookExample />
                 <img

@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import { setData } from "../utils/actions";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
-import axios from "axios";
 
 function Form() {
   const dispatch = useDispatch();
@@ -30,13 +29,15 @@ function Form() {
   const isAuthenticated = localStorage.getItem("user"); // Check if user is authenticated from localStorage
 
   const handleBookFlight = () => {
-    if (!isAuthenticated) {
-      navigate("/login"); // Redirect to login page if user is not authenticated
-    } else {
-      // Perform booking logic here
-      console.log("Flight booked successfully!");
-      // Redirect to success page or any other page after successful booking
-      navigate("/");
+    switch (true) {
+      case !isAuthenticated:
+        navigate("/login"); // Redirect to login page if user is not authenticated
+        break;
+      case !flyingFrom:
+        navigate("/");
+        break;
+      default:
+        navigate("/");
     }
   };
   const handleTripTypeChange = (e) => {
@@ -165,7 +166,7 @@ function Form() {
             value={flyingFrom}
             onChange={handleFlyingFromChange}
           >
-            <option value=""></option>
+            <option value="">Select City</option>
             <option value="LOS">Lagos</option>
             <option value="ABV">Abuja</option>
             <option value="PHC">Portharcourt</option>
@@ -182,7 +183,7 @@ function Form() {
             value={flyingTo}
             onChange={handleFlyingFromChange2}
           >
-            <option value=""></option>
+            <option value="">Select City</option>
             <option value="KAN">Kano</option>
             <option value="IBA">Ibadan</option>
             <option value="ENU">Enugu</option>
