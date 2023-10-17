@@ -19,6 +19,12 @@ function Navbar() {
   const handleContactEmailChange = (e) => {
     setContactEmail(e.target.value);
   };
+  //check user in database
+  const user = localStorage.getItem("user");
+
+  const userData = user ? JSON.parse(user) : null;
+
+  const username = userData ? userData.User : "please Login to book flight";
   //handle scroll
   useEffect(() => {
     const handleScroll = () => {
@@ -38,7 +44,8 @@ function Navbar() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [lastScrollTop]);
-  
+  const response = () => localStorage.removeItem("user");
+
   return (
     <>
       <nav class="navbar navbar-expand-lg fixed-top">
@@ -48,7 +55,8 @@ function Navbar() {
             <FontAwesomeIcon icon={faPlane} class="text-white" /> MQ'S FLIGHTS
           </Link>
 
-          <button style={{border: '1px white solid'}}
+          <button
+            style={{ border: "1px white solid" }}
             class="navbar-toggler"
             type="button"
             data-bs-toggle="offcanvas"
@@ -221,6 +229,25 @@ function Navbar() {
                     </li>
                   </ul>
                 </li>
+                {userData ? (
+                  <li class="nav-item m-3 dropdown dropstart">
+                    <button
+                      class="nav-link bg-white text-center dropdown-toggle border rounded"
+                      onClick={response}
+                    >
+                      Logout
+                    </button>
+                  </li>
+                ) : (
+                  <li class="nav-item m-3 dropdown dropstart">
+                    <Link
+                      class="nav-link bg-white text-center dropdown-toggle border rounded"
+                      to="/login"
+                    >
+                      Login
+                    </Link>
+                  </li>
+                )}
               </ul>
             </div>
           </div>
