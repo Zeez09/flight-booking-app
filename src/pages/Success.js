@@ -12,7 +12,7 @@ function Success() {
       <div className="container-fluid">
         <div className="container">
           <h1 className="text-center display-3 py-5">
-            Dear Customer, Booking is SuccessFull
+            Booking is SuccessFull, Download your receipt from your email
           </h1>
           <p className="py-3">
             Your flight booking has been received! We’re thrilled to assist you

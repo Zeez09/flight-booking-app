@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../component/Footer";
 import Navbar from "../component/Navbar";
@@ -6,18 +6,8 @@ import { useSelector } from "react-redux";
 import { usePaystackPayment } from "react-paystack";
 import { useNavigate } from "react-router-dom";
 function Booking() {
-  const {
-    selectedCurrency,
-    flyingFrom,
-    flyingTo,
-    adultCount,
-    childCount,
-    infantCount,
-    classes,
-    tripType,
-    returnDate,
-    date,
-  } = useSelector((state) => state.mainReducer);
+  const { flyingFrom, flyingTo, classes, tripType, returnDate, date } =
+    useSelector((state) => state.mainReducer);
   console.log(tripType["one-way"]);
   //navigate
   const navigate = useNavigate();
@@ -25,52 +15,10 @@ function Booking() {
   const user = localStorage.getItem("user");
   console.log(user);
   const userData = user ? JSON.parse(user) : null;
-  console.log(userData);
+  console.log(userData.User);
+  const email = userData.User;
 
   const [isBooked, setIsBooked] = useState(false);
-
-  const handleBooking = () => {
-    setIsBooked(true);
-  };
-  const config = {
-    reference: new Date().getTime().toString(),
-    email: "wuesemimi@gmail.com",
-    amount: 250000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
-    publicKey: "pk_test_aa9595381d858c49d21f6378ac51c418418dec90",
-  };
-
-  // you can call this function anything
-  const onSuccess = (reference) => {
-    // Implementation for whatever you want to do with reference and after success call.
-    // Convert the object to a JSON string before storing
-    localStorage.setItem("transid", JSON.stringify(reference.reference));
-    if (reference) {
-      navigate("/success");
-    }
-  };
-
-  // you can call this function anything
-  const onClose = () => {
-    // implementation for  whatever you want to do when the Paystack dialog closed.
-    console.log("closed");
-  };
-
-  const PaystackHookExample = () => {
-    const initializePayment = usePaystackPayment(config);
-    return (
-      <div>
-        <button
-          className="button"
-          onClick={() => {
-            initializePayment(onSuccess, onClose);
-          }}
-        >
-          Click to Make Payment
-        </button>
-      </div>
-    );
-  };
-
   const hello = {
     status: true,
     timestamp: 1696993705317,
@@ -142,11 +90,50 @@ function Booking() {
 
   // Select a random price from the prices array
   const randomPrice = prices[Math.floor(Math.random() * prices.length)];
-  const data = {
-    flyingFrom,
-    flyingTo,
+
+  const price = Math.floor(randomPrice * 100); // Converts 343.78 to 34378
+  console.log(price);
+  const handleBooking = () => {
+    setIsBooked(true);
   };
-  useEffect(() => {}, []);
+  const config = {
+    reference: new Date().getTime().toString(),
+    email: `${email}`,
+    amount: price, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
+    publicKey: "pk_test_aa9595381d858c49d21f6378ac51c418418dec90",
+  };
+
+  // you can call this function anything
+  const onSuccess = (reference) => {
+    // Implementation for whatever you want to do with reference and after success call.
+    // Convert the object to a JSON string before storing
+    localStorage.setItem("transid", JSON.stringify(reference.reference));
+    if (reference) {
+      navigate("/success");
+    }
+  };
+
+  // you can call this function anything
+  const onClose = () => {
+    // implementation for  whatever you want to do when the Paystack dialog closed.
+    console.log("closed");
+  };
+
+  const PaystackHookExample = () => {
+    const initializePayment = usePaystackPayment(config);
+    return (
+      <div>
+        <button
+          className="button"
+          onClick={() => {
+            initializePayment(onSuccess, onClose);
+          }}
+        >
+          Click to Make Payment
+        </button>
+      </div>
+    );
+  };
 
   return (
     <>
