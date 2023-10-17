@@ -184,7 +184,7 @@ function Form() {
           >
             <option value=""></option>
             <option value="KAN">Kano</option>
-            <option value="LOS">Lagos</option>
+            <option value="IBA">Ibadan</option>
             <option value="ENU">Enugu</option>
             {/* Add more options as needed */}
           </select>
@@ -296,7 +296,6 @@ function Form() {
             Book Flight
           </button>
         </div>
-       
       </form>
     </>
   );

@@ -191,7 +191,7 @@ function Booking() {
         </div>
         <div class="row p-2 text-center">
           <div class="col">
-            <h1>${randomPrice}</h1>
+            <h1>{randomPrice} naira</h1>
           </div>
           <div className="col">
             <p class="fs-4">Class: {classes}</p>
