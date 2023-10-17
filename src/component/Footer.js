@@ -112,7 +112,7 @@ function Footer() {
             </ul>
           </div>
           <div class="col-md-4">
-            <h5>COMPANY INFORMATION</h5>
+            <h5>MQ's Flight</h5>
             <ul class="list-unstyled">
               <li>
                 <i class="bi bi-envelope"></i> wuesemimi@gmail.com
