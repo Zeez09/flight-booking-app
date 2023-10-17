@@ -10,9 +10,12 @@ function Footer() {
       <footer class="footer container-fluid text-white m-0 px-5 pt-5">
         <div class="row text-white">
           <div class="col-md-4">
-          <Link class="navbar-brand border p-3 rounded mb-3 text-white" to="/">
-            <FontAwesomeIcon icon={faPlane} class="text-white" /> MQ'S FLIGHTS
-          </Link>
+            <Link
+              class="navbar-brand border p-3 rounded mb-3 text-white"
+              to="/"
+            >
+              <FontAwesomeIcon icon={faPlane} class="text-white" /> MQ'S FLIGHTS
+            </Link>
             <h5 class="mt-3">Follow us</h5>
             <ul class="list-group list-unstyled social-media-icons list-group-horizontal">
               <li>
@@ -117,14 +120,16 @@ function Footer() {
               <li>
                 <i class="bi bi-phone"></i>+234 815 272 39
               </li>
-             
             </ul>
           </div>
         </div>
 
         <div class="row mt-5">
-          <div class="col-md-12 pt-3 text-center" style={{borderTop:'1px solid darkcyan'}}>
-            <p class="copyright">Copyright &copy; 2023 Example Company</p>
+          <div
+            class="col-md-12 pt-3 text-center"
+            style={{ borderTop: "1px solid darkcyan" }}
+          >
+            <p class="copyright">Copyright &copy; 2023 MQ's Flight</p>
           </div>
         </div>
       </footer>
