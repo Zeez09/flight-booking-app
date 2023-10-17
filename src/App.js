@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import Booking from "./pages/Booking";
 import Register from "./pages/Register";
 import PrivateRoute from "./utils/Privateroute";
+import Success from "./pages/Success";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/Register" element={<Register />} />
         <Route path="/" element={<PrivateRoute />}>
           <Route path="/booking" element={<Booking />} />
+          <Route path="/success" element={<Success />} />
         </Route>
       </Routes>
     </Router>

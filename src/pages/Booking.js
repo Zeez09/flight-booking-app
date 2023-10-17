@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Footer from "../component/Footer";
 import Navbar from "../component/Navbar";
 import { useSelector } from "react-redux";
+import { usePaystackPayment } from "react-paystack";
 
 function Booking() {
   const {
@@ -18,11 +19,51 @@ function Booking() {
     date,
   } = useSelector((state) => state.mainReducer);
   console.log(tripType["one-way"]);
+  //get user
+  const user = localStorage.getItem("user");
+  console.log(user);
+  const userData = user ? JSON.parse(user) : null;
+  console.log(userData);
 
   const [isBooked, setIsBooked] = useState(false);
 
   const handleBooking = () => {
     setIsBooked(true);
+  };
+  const config = {
+    reference: new Date().getTime().toString(),
+    email: "wuesemimi@gmail.com",
+    amount: 250000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
+    publicKey: "pk_test_aa9595381d858c49d21f6378ac51c418418dec90",
+  };
+
+  // you can call this function anything
+  const onSuccess = (reference) => {
+    // Implementation for whatever you want to do with reference and after success call.
+    // Convert the object to a JSON string before storing
+    localStorage.setItem("transid", JSON.stringify(reference.reference));
+  };
+
+  // you can call this function anything
+  const onClose = () => {
+    // implementation for  whatever you want to do when the Paystack dialog closed.
+    console.log("closed");
+  };
+
+  const PaystackHookExample = () => {
+    const initializePayment = usePaystackPayment(config);
+    return (
+      <div>
+        <button
+          className="button"
+          onClick={() => {
+            initializePayment(onSuccess, onClose);
+          }}
+        >
+          Click to Make Payment
+        </button>
+      </div>
+    );
   };
 
   const hello = {
@@ -107,7 +148,12 @@ function Booking() {
       <Navbar />
       <div
         class="row container mx-auto p-5 rounded-4 "
-        style={{ marginTop: "10rem", marginBottom:"15rem", height:"30%", background:'rgba(137, 137, 177, 0.823)'}}
+        style={{
+          marginTop: "10rem",
+          marginBottom: "15rem",
+          height: "30%",
+          background: "rgba(137, 137, 177, 0.823)",
+        }}
       >
         <div class="row container text-center p-2">
           <div class="col-4">
@@ -116,7 +162,7 @@ function Booking() {
           </div>
           <div class="col-md-6">
             <img
-              style={{marginRight: '10px'}}
+              style={{ marginRight: "10px" }}
               width="30"
               height="30"
               src="https://img.icons8.com/ios-filled/50/airplane-mode-on.png"
@@ -124,7 +170,12 @@ function Booking() {
             />
             {tripType["one-way"] ? (
               <>
-                <span className="border rounded fs-5 p-2" style={{color: 'rgb(8, 10, 95)'}}>One Way</span>
+                <span
+                  className="border rounded fs-5 p-2"
+                  style={{ color: "rgb(8, 10, 95)" }}
+                >
+                  One Way
+                </span>
               </>
             ) : (
               <>
@@ -159,8 +210,15 @@ function Booking() {
                 type="button"
                 className="btn bg-primary text-white col-md-6 text-whitenpm"
                 onClick={handleBooking}
+                to="/success"
               >
-                Booked <img width="48" height="48" src="https://img.icons8.com/color-glass/48/ok--v1.png" alt="ok--v1"/>
+                Booked <PaystackHookExample />
+                <img
+                  width="48"
+                  height="48"
+                  src="https://img.icons8.com/color-glass/48/ok--v1.png"
+                  alt="ok--v1"
+                />
               </Link>
             )}
           </div>
