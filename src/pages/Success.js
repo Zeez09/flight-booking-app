@@ -17,8 +17,7 @@ function Success() {
           <p className="py-3">
             Your flight booking has been received! We’re thrilled to assist you
             in planning your journey. Our booking team is diligently working on
-            processing your reservation. Expect a confirmation email with the
-            next steps for your flight booking very soon. Safe travels! ✈️
+            processing your reservation. Safe travels! ✈️
             <span role="img" aria-labelledby="emoji">
               🎉🎉🎉!
             </span>
