@@ -13,6 +13,9 @@ const Signup = (onSignup) => {
     email: "",
     username: "",
     password: "",
+    firstname: "",
+    lastname: "",
+
   };
   function isRequired(value) {
     return value != null && value.trim().length > 0;
@@ -23,6 +26,9 @@ const Signup = (onSignup) => {
   }
 
   const validations = [
+    ({ firstname }) => isRequired(firstname) || { firstname: "firstname is required" },
+    ({ lastname }) => isRequired(lastname) || { lastname: "lastname is required" },
+
     ({ email }) => isRequired(email) || { email: "E-mail is required" },
     ({ username }) =>
       isRequired(username) || { username: "username is required" },
@@ -77,12 +83,14 @@ const Signup = (onSignup) => {
   const form = useRef(null);
   const submitHandler = async (e) => {
     e.preventDefault();
-    const { email, username, password } = values;
+    const { firstname, lastname, email, username, password } = values;
     console.log(email);
     try {
       let res = await axios.post(
-        `https://flight-app-backend.onrender.com/api/signup/`,
+        `http://localhost:9000/api/signUp/`,
         {
+          firstname: firstname,
+          lastname: lastname,
           email: email,
           username: username,
           password: password,
@@ -129,6 +137,11 @@ const Signup = (onSignup) => {
                   method="post"
                 >
                   <div className="mb-3">
+                    
+                    <input type="text" placeholder="first name"  className="form-control col-12" onChange={changeHandler} name="firstname" value={values.firstname}/></div>
+                    <div className="mb-3">
+                    <input type="text" placeholder="last name"  className="form-control col-12" onChange={changeHandler} name="lastname" value={values.lastname}/></div>
+                    <div className="mb-3">
                     <input
                       type="text"
                       className="form-control col-12"

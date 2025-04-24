@@ -6,6 +6,8 @@ import { useSelector } from "react-redux";
 import { usePaystackPayment } from "react-paystack";
 import { useNavigate } from "react-router-dom";
 function Booking() {
+
+
   const { flyingFrom, flyingTo, classes, tripType, returnDate, date } =
     useSelector((state) => state.mainReducer);
   console.log(tripType["one-way"]);
@@ -193,7 +195,7 @@ function Booking() {
               <button
                 type="button"
                 className="btn bg-info text-white col-md-6"
-                onClick={handleBooking}
+                onClick={handleBooking} 
               >
                 Book
               </button>

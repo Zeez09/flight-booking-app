@@ -19,6 +19,8 @@ function Form() {
   const [tripType, setTripType] = useState({
     "one-way": true,
     "round-trip": false,
+
+    
   });
 
   const [returnDate, setReturnDate] = useState("");
@@ -77,7 +79,9 @@ function Form() {
           classes,
           tripType,
           returnDate,
-          date
+          date,
+         
+          
         )
       )
     ).then(() => {
@@ -91,6 +95,8 @@ function Form() {
   const userData = user ? JSON.parse(user) : null;
   console.log(userData);
   const username = userData ? userData.User : "please Login to book flight";
+
+
 
   return (
     <>

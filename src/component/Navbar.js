@@ -6,15 +6,55 @@ import "../App.css";
 import "../Custom.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlane } from "@fortawesome/free-solid-svg-icons";
+import flight from '../images/icons8-airplane-take-off-24.png';
+import axios from "axios";
 
 function Navbar() {
   const [lastScrollTop, setLastScrollTop] = useState(0);
   const [bookingRef, setBookingRef] = useState("");
   const [contactEmail, setContactEmail] = useState("");
+  const [error, setError] = useState('');
 
   const handleBookingRefChange = (e) => {
-    setBookingRef(e.target.value);
-  };
+    setBookingRef(e.target.value)};
+
+    const handleCheckIn = (e) => {
+      e.preventDefault();
+      try{
+        axios.get("http://localhost:9000/api/fetchdata").then((res) => {
+          const user = res.data.users
+          if (user) {
+            user.filter((data) => {
+              console.log(data, bookingRef);
+              
+            })
+          }
+
+        })
+      } catch (e) {}}
+    
+
+  const generateBookingRef = (e) => {
+        const characters = '^[A-Za-z0-9]{9}$'
+        let result = '';
+        for (let i = 0; i < 9; i++) {
+          result += characters.charAt(Math.floor(Math.random()*characters.length));
+        }
+        setBookingRef(result);
+    }
+
+
+    const getBookingRef = async () => {
+      try {
+        const response = await fetch('');
+        const data = await response.json();
+        setBookingRef(data.bookingRef);
+        setError('');
+      } catch (err) {
+        console.error('Error fetching booking number:', err);
+        setError('Failed to fetch booking number');
+      }
+    };
 
   const handleContactEmailChange = (e) => {
     setContactEmail(e.target.value);
@@ -96,7 +136,7 @@ function Navbar() {
                     Home
                   </Link>
                 </li>
-                <li className="nav-item m-3">
+                <form className="nav-item m-3" onSubmit={handleCheckIn}>
                   <Link
                     type="button"
                     className="nav-link active btn btn-outline-light text-dark"
@@ -130,40 +170,20 @@ function Navbar() {
                         </div>
                         <div className="modal-body">
                           <div className="form-floating text-dark mb-3">
-                            <input
-                              type="text"
-                              className="form-control"
-                              id="bookingRefInput"
-                              placeholder="Booking Reference"
-                              value={bookingRef}
-                              onChange={handleBookingRefChange}
+                          <input
+                            type="text"
+                            className="form-control"
+                            id="bookingRefInput"
+                            placeholder="Booking Reference"
+                            value={bookingRef}
+                            // onClick={getBookingRef}
+                            onChange={handleBookingRefChange}
                             />
-                            <label htmlFor="bookingRefInput">
-                              Booking Reference
-                            </label>
-                          </div>
-                          <div className="form-floating text-dark mb-3">
-                            <input
-                              type="email"
-                              className="form-control"
-                              id="emailInput"
-                              placeholder="Email"
-                              value={contactEmail}
-                              onChange={handleContactEmailChange}
-                            />
-                            <label htmlFor="emailInput">Contact Email</label>
                           </div>
                           <div className="d-grid gap-2 col-6 mx-auto">
                             <button
-                              className="btn btn-success mt-5"
-                              onClick={() =>
-                                console.log(
-                                  "Proceed clicked with bookingRef:",
-                                  bookingRef,
-                                  "and email:",
-                                  contactEmail
-                                )
-                              }
+                              className="btn btn-primary col-md-5 m-2 "
+                             type="submit"
                             >
                               Proceed
                             </button>
@@ -172,7 +192,7 @@ function Navbar() {
                       </div>
                     </div>
                   </div>
-                </li>
+                </form>
                 <li class="nav-item m-3 dropdown dropstart">
                   <a
                     class="nav-link bg-white text-center dropdown-toggle border rounded"

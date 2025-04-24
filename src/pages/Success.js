@@ -7,12 +7,23 @@ function Success() {
   useEffect(() => {
     document.title = "MQ's Flight | Success";
   }, []);
+
+  const generateBookingRef = () => {
+          const characters = '^[A-Za-z0-9]{9}$'
+          let result = '';
+          for (let i = 0; i < 9; i++) {
+            result += characters.charAt(Math.floor(Math.random()*characters.length));
+          }
+          return result;
+      }
+      const bookingRef = generateBookingRef();
+
   return (
     <>
       <div className="container-fluid">
         <div className="container">
           <h1 className="text-center display-3 py-5">
-            Booking is SuccessFull, Download your receipt from your email
+            Booking is SuccessFull, Download your receipt from your email. Your booking Reference is: {bookingRef}
           </h1>
           <p className="py-3">
             Your flight booking has been received! We’re thrilled to assist you
