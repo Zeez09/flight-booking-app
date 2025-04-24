@@ -109,7 +109,7 @@ function Navbar() {
                 <li className="nav-item m-3">
                   <button
                     type="button"
-                    className ="nav-link bg-white text-center dropdown-toggle border rounded"
+                    className ="nav-link bg-white text-center dropdown-toggle border rounded w-100"
                     data-bs-toggle="modal"
                     data-bs-target="#checkinModal"
                   >
