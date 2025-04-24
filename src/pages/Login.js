@@ -27,7 +27,7 @@ function Login() {
     e.preventDefault();
     try {
       axios
-        .post("http://localhost:9000/api/signin/", data)
+        .post("http://flight-booking-app-backend-production.up.railway.app/api/signin/", data)
         .then((res) => {
           // Redirect to payment page
           setIsLoading(true);

@@ -21,7 +21,7 @@ function Navbar() {
     const handleCheckIn = (e) => {
       e.preventDefault();
       try{
-        axios.get("http://localhost:9000/api/fetchdata").then((res) => {
+        axios.get("https://flight-booking-app-backend-production.up.railway.app/api/fetchdata").then((res) => {
           const user = res.data.users
           if (user) {
             user.filter((data) => {

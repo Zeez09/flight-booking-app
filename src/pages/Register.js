@@ -87,7 +87,7 @@ const Signup = (onSignup) => {
     console.log(email);
     try {
       let res = await axios.post(
-        `http://localhost:9000/api/signUp/`,
+        `http://flight-booking-app-backend-production.up.railway.app/api/signUp/`,
         {
           firstname: firstname,
           lastname: lastname,
